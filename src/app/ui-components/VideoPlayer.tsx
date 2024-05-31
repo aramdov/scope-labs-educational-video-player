@@ -1,6 +1,4 @@
 
-
-import Link from "next/link";
 import { formatDistanceToNow, parseISO } from 'date-fns';
 import { MessageSquare } from 'lucide-react';
 import fetchSingleVideo from "@/actions/fetchSingleVideo";

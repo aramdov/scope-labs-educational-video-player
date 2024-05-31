@@ -23,8 +23,8 @@ function SubmitButton() {
 }
 
 export default function Header() {
-  const [search, setSearch] = useState("");
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [search, setSearch] = useState(""); // Search state. However, currently search is not implemented.
+  const [isModalOpen, setIsModalOpen] = useState(false); // Modal state
   const [state, formAction] = useFormState(
     async (prevState: { message: string; }, formData: FormData) => {
     const result = await addVideo(prevState, formData);

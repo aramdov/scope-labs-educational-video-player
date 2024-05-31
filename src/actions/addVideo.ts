@@ -28,6 +28,8 @@ export async function addVideo(
       });
   
       if (!response.ok) {
+        // log the response
+        console.log(`addVideo | response: ${response.json()}`);
         throw new Error("Failed to upload video");
       }
   

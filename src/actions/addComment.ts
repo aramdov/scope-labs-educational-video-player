@@ -1,5 +1,6 @@
 'use server';
 import config from "@/config";
+import { revalidatePath } from "next/cache";
 
 
 /**
@@ -12,6 +13,12 @@ export const addComment = async (video_metadata: any, formData: any) => {
     const video_id = video_metadata.video_id;
     const user_id = config.user_id;
     const content = formData.get('content');
+
+    // log the fields to the console to see if this is working, make sure all fields are present with a string prefix identifying them
+    // console.log(`addComment | video_id: ${video_id}`);
+    // console.log(`addComment | user_id: ${user_id}`);
+    // console.log(`addComment | content: ${content}`);
+
     
     // make a POST request to the API to add a comment
     const url = `${config.base_videos_api}/comments/`;
@@ -25,9 +32,12 @@ export const addComment = async (video_metadata: any, formData: any) => {
         body,
     });
     if (!response.ok) {
+        // log the response
+        console.log(`addComment | response: ${response.json()}`);
         throw new Error("Failed to add comment");
     }
+    revalidatePath(`/video/${video_id}`); // Revalidate the video page (so the comment that was submitted is shown in the list of comments)
     // return the response
-    return response;
+    return response.json();
 
 }

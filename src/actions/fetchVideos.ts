@@ -10,7 +10,7 @@ interface Video {
     created_at: string; // created_at
     num_comments: number; // nummber of comments
     video_url: string; // video_url
-    }
+  }
   
 /**
  * Fetches videos from the API that were uploaded by the provided user ID.

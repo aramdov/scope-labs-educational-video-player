@@ -16,7 +16,7 @@ interface VideoPageParams {
     params: VideoPageParams;
   }) {
     const videoId  = params.videoId? params.videoId : "";
-    console.log("VIDEO ID ", videoId);
+    // console.log("VIDEO ID ", videoId);
   
     const comments = await fetchComments(videoId);
     const videos = await fetchVideos(); // used for the sidebar view of other videos
@@ -34,14 +34,13 @@ interface VideoPageParams {
         <div className="mx-auto max-w-7xl px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
             <div className="col-span-2">
-              {/* Your VideoPlayer component */}
               <VideoPlayer video_id={videoId} />
-              {/* Your CommentSection component */}
-              <CommentSection comments={comments} />
+
+              <CommentSection comments={comments} video_id={videoId} />
             </div>
             
             <div className=" ml-5 col-span-2 flex flex-col space-y-4">
-              {/* Your VideoCard components */}
+              {/* The 3 videos on the side */}
               {selectedVideos.map((video, index) => (
                 <VideoCard key={index} {...video} />
               ))}

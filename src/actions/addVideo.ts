@@ -4,7 +4,13 @@
 import config from "@/config";
 import { revalidatePath } from "next/cache";
 
-
+/**
+ * Asynchronously adds a video by sending a POST request to the videos API.
+ *
+ * @param {Object} prevState - The previous state object containing a message string.
+ * @param {FormData} formData - The form data containing video details (title, url, description).
+ * @returns {Promise<Object>} - A promise that resolves to an object containing a message string.
+ */
 export async function addVideo(
     prevState: { message: string },
     formData: FormData,

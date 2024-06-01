@@ -12,6 +12,12 @@ const initialState = {
   message: "",
 };
 
+/**
+ * A SubmitButton component that displays a button to upload a video.
+ * The button is disabled when the form is pending.
+ * It is a good practice to disable the button when the form is pending to prevent multiple form submissions.
+ * @returns 
+ */
 function SubmitButton() {
   const { pending } = useFormStatus();
 
@@ -22,6 +28,13 @@ function SubmitButton() {
   );
 }
 
+/**
+ * A Header component that displays a non-functional search bar, LearnWell Logo that is clickable and a button to upload a video.
+ * The upload button opens a modal to upload a video by providing a title, url, and description.
+ * The form is submitted to the addVideo action to add a video.
+ * The LearnWell redirects the user to the home page ('/') when clicked.
+ * @returns 
+ */
 export default function Header() {
   const [search, setSearch] = useState(""); // Search state. However, currently search is not implemented.
   const [isModalOpen, setIsModalOpen] = useState(false); // Modal state

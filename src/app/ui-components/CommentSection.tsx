@@ -23,8 +23,15 @@ function SubmitButton() {
         Comment
       </button>
     );
-  }
+}
 
+/**
+ * The CommentSection component displays a comment section with comments and a form to add a comment.
+ * It uses the addComment action to add a comment to the video.
+ * It also calculates the time ago the comment was uploaded using the date-fns library.
+ * @param param0 
+ * @returns 
+ */
 export default function CommentSection({ comments, video_id }: { comments: VideoComment[], video_id: string }) {
     // log the video id
     // console.log(`CommentSection | video_id: ${video_id}`);

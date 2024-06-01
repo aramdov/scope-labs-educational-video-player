@@ -4,6 +4,11 @@ import fetchVideos from "@/actions/fetchVideos";
 
 
 
+/**
+ * A GridComponent that displays a grid of video cards.
+ * It fetches the videos from the fetchVideos action and maps each video to a VideoCard component.
+ * @returns A JSX element containing a grid of video cards.
+ */
 export default async function GridComponent() {
 
   const videos = await fetchVideos();

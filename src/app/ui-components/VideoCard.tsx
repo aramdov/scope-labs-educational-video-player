@@ -13,7 +13,16 @@ interface VideoCardProps {
   video_url: string; // video_url (ie something ending in .mp4 or .webm)
   }
   
-  export default function VideoCard({ id, title, user_id, created_at, num_comments, video_url }: VideoCardProps) {
+
+/**
+ * The VideoCard component displays a video card with a thumbnail, title, user_id, time ago, and number of comments.
+ * It uses the date-fns library to format the time ago the video was uploaded.
+ * It also uses HTML5 video player to play the video that provides playback controls to the user in case the user wants to watch the video here.
+ * The thumbnail contains the actual video that can be played by clicking on the video card, but should be replaced with a better thumbnail.
+ * @param param0  An object containing metadata of the video to be displayed.
+ * @returns 
+ */
+export default function VideoCard({ id, title, user_id, created_at, num_comments, video_url }: VideoCardProps) {
     const date = parseISO(created_at);
     const timeAgo = formatDistanceToNow(date, { addSuffix: true }); // calculate the time ago
     

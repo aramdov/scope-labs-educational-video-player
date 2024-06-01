@@ -3,6 +3,15 @@ import { formatDistanceToNow, parseISO } from 'date-fns';
 import { MessageSquare } from 'lucide-react';
 import fetchSingleVideo from "@/actions/fetchSingleVideo";
 
+/**
+ * A Video Player component that plays a video and displays its metadata.
+ * Uses the fetchSingleVideo action to fetch the video information.
+ * Uses the date-fns library to format the time ago the video was uploaded.
+ * It displays the video title, user_id, time ago, and number of comments.
+ * It also uses HTML5 video player to play the video that provides playback controls to the user.
+ * @param video_metadata An object containing the video_id of the video to be played
+ * @returns A JSX element containing the video player and its metadata
+ */
 export default async function VideoPlayer(video_metadata: any) {
 
     // fetch single video information

@@ -8,7 +8,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: "Educational Video Player App",
+  title: "LearnWell",
   description: "Watch Informative Videos on Various Topics",
 };
 
